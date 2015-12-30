@@ -14,6 +14,8 @@ master:
   volumes:
     - "./master/app:/src/app"
   env_file: .env
+  links: 
+    - mongo
   ports:
     - "2000:3000"
 server:
@@ -21,6 +23,8 @@ server:
   volumes:
     - "./server/app:/src/app"
   env_file: .env
+  links: 
+    - mongo
   ports:
     - "2001:3000"
 server2:
@@ -28,6 +32,8 @@ server2:
   volumes:
     - "./server/app:/src/app"
   env_file: .env
+  links: 
+    - mongo
   ports:
     - "2002:3000"
 server3:
@@ -35,5 +41,7 @@ server3:
   volumes:
     - "./server/app:/src/app"
   env_file: .env
+  links: 
+    - mongo
   ports:
     - "2003:3000"
