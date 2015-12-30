@@ -3,7 +3,6 @@ docker-machine create --driver virtualbox dev
 docker-machine start dev
 eval "$(docker-machine env dev)"
 echo "MASTER_SERVER_HOST=$(docker-machine ip dev)" > ./.env
-echo "MASTER_SERVER_PORT=2000" >> ./.env
 echo "HOST=$(docker-machine ip dev)" >> ./.env
 
 docker-compose -f docker-compose.dev.yml up
