@@ -4,7 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var preflightCheck = require('./config/preflightCheck')
+([
+	'MASTER_SERVER_HOST',
+	'MASTER_SERVER_PORT',
+	'HOST',
+	'PORT',
+	'SESSION_SECRET'
+]);
 var app = express();
 
 app.use(logger('dev'));

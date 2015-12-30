@@ -33,8 +33,9 @@ gulp.task('browserify', function() {
 gulp.task('render-templates', function() {
     gulp.src("./src/templates/*.ejs")
         .pipe(ejs({
-            master_server_host: process.env.MASTER_SERVER_HOST || 'localhost',
-            master_server_port: process.env.MASTER_SERVER_PORT || 3000
+            masterServerHost: process.env.MASTER_SERVER_HOST || 'localhost',
+            masterServerPort: process.env.MASTER_SERVER_PORT || 2000,
+            googleClientId: process.env.GOOGLE_CLIENT_ID || 'xxxxxx'
         }))
         .pipe(gulp.dest("./dist"));
 });

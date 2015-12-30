@@ -5,9 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var mongoose = require('mongoose');
 var session      = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var configDB = require('./config/database')
+var preflightCheck = require('./config/preflightCheck')
+([
+  'SESSION_SECRET',
+  'HOST', 
+  'PORT'
+]);
 
 var app = express();
 mongoose.connect(configDB.url, function(err) {
@@ -31,13 +38,12 @@ app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, 'dist')));
 
 app.use(session({ 
-	secret: process.env.SESSION_KEY,
+	secret: process.env.SESSION_SECRET,
 	store: new MongoStore({mongooseConnection: mongoose.connection})
 })); 
 require('./config/passport')(passport); 
 app.use(passport.initialize());
 app.use(passport.session()); 
-
 require('./config/routes')(app, passport);
 
 var server = app.listen(3000, function () {
