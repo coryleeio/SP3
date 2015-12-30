@@ -1,1 +1,1 @@
-Client server
+Client server(development only, in production this would be served from a CDN).

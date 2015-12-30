@@ -1,1 +1,1 @@
-Client server
+Master server

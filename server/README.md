@@ -1,1 +1,1 @@
-Client server
+Game server
