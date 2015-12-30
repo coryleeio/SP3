@@ -1,0 +1,39 @@
+mongo:
+  build: ./mongo
+  ports:
+   - "27017"
+client:
+  build: ./client
+  volumes:
+    - "./client/app:/src/app"
+  env_file: .env
+  ports:
+    - "80:3000"
+master:
+  build: ./master
+  volumes:
+    - "./master/app:/src/app"
+  env_file: .env
+  ports:
+    - "2000:3000"
+server:
+  build: ./server
+  volumes:
+    - "./server/app:/src/app"
+  env_file: .env
+  ports:
+    - "2001:3000"
+server2:
+  build: ./server
+  volumes:
+    - "./server/app:/src/app"
+  env_file: .env
+  ports:
+    - "2002:3000"
+server3:
+  build: ./server
+  volumes:
+    - "./server/app:/src/app"
+  env_file: .env
+  ports:
+    - "2003:3000"

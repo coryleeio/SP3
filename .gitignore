@@ -1,0 +1,7 @@
+/.env
+/client/app/.sass-cache
+/client/app/dist
+/master/app/.sass-cache
+/master/app/dist
+/server/app/.sass-cache
+/server/app/dist
