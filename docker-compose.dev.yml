@@ -18,8 +18,9 @@ master:
     - "./master/app:/src/app"
   env_file: .env
   environment:
-    - SESSION_SECRET=potatoesec
+    - SESSION_SECRET=potatosec
     - PORT=2000
+    - SERVER_REGISTRATION_SECRET=masterpotatosec
   links: 
     - mongo
   ports:
@@ -34,6 +35,7 @@ server:
     - SESSION_SECRET=potatoesec
     - PORT=2001
     - MASTER_SERVER_PORT=2000
+    - SERVER_REGISTRATION_SECRET=masterpotatosec
   links: 
     - mongo
   ports:
@@ -48,6 +50,7 @@ server2:
     - SESSION_SECRET=potatoesec
     - PORT=2002
     - MASTER_SERVER_PORT=2000
+    - SERVER_REGISTRATION_SECRET=masterpotatosec
   links: 
     - mongo
   ports:
@@ -62,6 +65,7 @@ server3:
     - SESSION_SECRET=potatoesec
     - PORT=2003
     - MASTER_SERVER_PORT=2000
+    - SERVER_REGISTRATION_SECRET=masterpotatosec
   links: 
     - mongo
   ports:

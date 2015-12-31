@@ -1,6 +1,6 @@
 var AES = require("crypto-js/aes");
 var SHA256 = require("crypto-js/sha256");
-var digestedServerSecret = SHA256(process.env.SHARED_SERVER_SECRET);
+var digestedServerSecret = SHA256(process.env.SERVER_REGISTRATION_SECRET);
 var Server = require('../models/server.js');
 module.exports = {
     isLoggedIn: function(req, res, next) {
@@ -13,7 +13,7 @@ module.exports = {
     },
     serverKeyIsValid: function(req, res, next) {
         console.log("checking server key....");
-        if(process.env.SHARED_SERVER_SECRET == null) {
+        if(process.env.SERVER_REGISTRATION_SECRET == null) {
             res.sendStatus(500);
             return;
         }
