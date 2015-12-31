@@ -1,3 +1,3 @@
-var gameConstants = require('./game/config/gameConstants');
-var canvas = require('./game/view/canvas');
-var login = require('./login');
+var gameConstants = require('./game/gameConstants');
+var canvas = require('./game/canvas');
+var login = require('./game/login');

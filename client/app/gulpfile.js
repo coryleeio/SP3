@@ -35,7 +35,7 @@ gulp.task('render-templates', function() {
         .pipe(ejs({
             masterServerHost: process.env.MASTER_SERVER_HOST || 'localhost',
             masterServerPort: process.env.MASTER_SERVER_PORT || 2000,
-            googleClientId: process.env.GOOGLE_CLIENT_ID || 'xxxxxx'
+            googleClientId: process.env.GOOGLE_CLIENT_ID
         }))
         .pipe(gulp.dest("./dist"));
 });
