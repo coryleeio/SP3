@@ -43,7 +43,7 @@ module.exports = function(app, passport) {
 
     app.get('/server', function(req, res) {
         Server.find({}).sort({load: 'ascending'}).exec(function(err, servers) {
-            res.json(servers[0]);
+            res.json(servers[0] || {});
         });
     });
 

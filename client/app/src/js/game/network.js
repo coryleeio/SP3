@@ -25,8 +25,11 @@ var now;
 // world.registerSystem(skyboxSystem);
 
 var network = {
-	connectToGameServer: function(gameUrl) {
-		console.log("Connecting to game server at: " + gameUrl);
+	connectToGameServer: function(host, port) {
+		var gameUrl = "http://" + host + ":" + port;
+		if(host == null || port == null) {
+			throw "Could not connect to game server at: "+ gameUrl;
+		}
 		var socket = io( gameUrl );
 		socket.on('connect', function () {
 			console.log("Connected to server.");

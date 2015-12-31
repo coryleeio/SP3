@@ -6,7 +6,7 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
 gulp.task('develop', function () {
-  nodemon({script: './app.js', ext: 'js hjs json', legacyWatch: true });
+  nodemon({script: './app.js', ext: 'js ejs json', legacyWatch: true });
   gulp.watch('./src/scss/**/*.scss', ['sass']);
   gulp.watch('./src/templates/**/*', ['render-templates']);
   gulp.watch('./src/js/**/*.js', ['browserify']);

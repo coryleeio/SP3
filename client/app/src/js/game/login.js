@@ -37,19 +37,22 @@ function handleAuthResult(authResult) {
 }
 
 function handlePlayClick(event) {
-  console.log('handling play click.')
-    $.ajax({
-       url: "/server",
-       type: "GET",
-       success: function(response) {
-        var gameUrl = "http://" + response.host + ":" + response.port;
-        network.connectToGameServer(gameUrl);
-        $('.loginModal').modal('hide');
-       },
-       error: function(messages) {
-         alert("Could not connect to server.");
-       }
-     });
+  var masterServerUrl = "http://" + masterServerHost + ":" + masterServerPort + "/server";
+  if(masterServerHost == null || masterServerPort == null) {
+    throw "Could not connect to master server at: "+ masterServerUrl;
+  }
+
+  $.ajax({
+     url: masterServerUrl,
+     type: "GET",
+     success: function(response) {
+      network.connectToGameServer(response.host, response.port);
+      $('.loginModal').modal('hide');
+     },
+     error: function(messages) {
+       alert("Could not connect to server.");
+     }
+   });
 }
 
 function handleGoogleClick(event) {
