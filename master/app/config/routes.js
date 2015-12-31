@@ -9,7 +9,7 @@ module.exports = function(app, passport) {
     app.get('/auth/google/callback', passport.authenticate('google'), function(req, res){
         res.sendStatus(204);
     });
-    app.put('/server', auth.serverKeyIsValid, function(req, res){
+    app.put('/server', auth.serverKeyIsValid, function(req, res){ 
         var parsedServer = new Server(req.body);
         Server.findOne({'host': parsedServer.host, 'port': parsedServer.port}, function(err, queriedServer){
             if(err) {
