@@ -62,19 +62,19 @@ Game.prototype.updateClientInput = function(clientId, clientPlayerInput) {
 
 Game.prototype.start = function() {
 	console.log('start');
-	var fn = this.world.step.bind(this.world);
-	this.gameLoopId = gameLoop.setGameLoop(fn, gameConstants.stepDelta);
-	this.snapshotLoopId = gameLoop.setGameLoop(function(){
-	   network.sendSnapshot(this);
-	 }.bind(this), gameConstants.snapshotDelta);
+	// var fn = this.world.step.bind(this.world);
+	// this.gameLoopId = gameLoop.setGameLoop(fn, gameConstants.stepDelta);
+	// this.snapshotLoopId = gameLoop.setGameLoop(function(){
+	//    network.sendSnapshot(this);
+	//  }.bind(this), gameConstants.snapshotDelta);
 }
 
 Game.prototype.stop = function() {
 	console.log('stop');
-	gameLoop.clearGameLoop(this.gameLoopId);
-	gameLoop.clearGameLoop(this.snapshotLoopId);
-	this.gameLoopId = null;
-	this.snapshotLoopId = null;
+	// gameLoop.clearGameLoop(this.gameLoopId);
+	// gameLoop.clearGameLoop(this.snapshotLoopId);
+	// this.gameLoopId = null;
+	// this.snapshotLoopId = null;
 }
 
 module.exports = Game;
